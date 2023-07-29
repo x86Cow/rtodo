@@ -3,6 +3,9 @@ use yew::prelude::*;
 mod todo_item;
 use todo_item::*;
 
+mod sqlite;
+use sqlite::create_db;
+
 #[function_component(App)] fn app() -> Html {
     // Create TODOS
     let todos = vec![
@@ -40,5 +43,6 @@ use todo_item::*;
     }
 }
 fn main() {
+    create_db().unwrap(); 
     yew::Renderer::<App>::new().render();
 }
